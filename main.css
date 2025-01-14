@@ -9,10 +9,25 @@
 .nav_wrapper{
     display: flex;
     position: relative;
-    background-color: darkgray;
+    justify-content: center;
+
 }
-.nav_wrapper .nav_header{
+.title{
+    padding-bottom: 50;
+}
+.nav_bar{
     position: fixed;
     width: 200px;
     height: 100%;
+    background: darkgray;
+}
+
+.text_container{
+    position: relative;
+    background-color: cadetblue;
+    width: 311px;
+    height: 100%;
+}
+.vector_container{
+    background-color: brown;
 }
