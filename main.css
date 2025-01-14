@@ -9,6 +9,7 @@
 .nav_wrapper{
     display: flex;
     position: relative;
+    background-color: darkgray;
 }
 .nav_wrapper .nav_header{
     position: fixed;
