@@ -1,0 +1,17 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+
+.nav_wrapper{
+    display: flex;
+    position: relative;
+}
+.nav_wrapper .nav_header{
+    position: fixed;
+    width: 200px;
+    height: 100%;
+}
