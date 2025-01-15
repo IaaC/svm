@@ -7,7 +7,7 @@ const canvas = document.querySelector('canvas.webgl')
 // scene
 const scene = new THREE.Scene();
 
-// Objects
+// OBEJECTS____________________________________________________________________________________
 
 //ORANGES
 const orangeMap = new THREE.TextureLoader().load("./images/orange.png");
@@ -15,16 +15,14 @@ const orangeSpriteMaterial = new THREE.SpriteMaterial({
     map: orangeMap,
     color: 0xe6aa0a
 });
-
-const positions = [ 
-    [1, 1, 0], 
+const orangePositions = [ 
+    [1, 2.3, 0],
     [2, 5, 4], 
-    [3, 3, 1], 
+    [3, 4, 1], 
     [4,7, 3], 
-    [5,5, 4]
+    [5,5.5, 4]
 ];
-
-function locateSprite(position){
+function locateOrangeSprite(position){
     const orangeSprite = new THREE.Sprite(orangeSpriteMaterial);
     orangeSprite.position.set(position[0],
         position[1],
@@ -33,13 +31,37 @@ function locateSprite(position){
         position[4],);
     scene.add(orangeSprite);
 }
-positions.forEach(locateSprite);
+orangePositions.forEach(locateOrangeSprite);
+
+//APPLES
+const appleMap = new THREE.TextureLoader().load("./images/apple.png");
+const appleSpriteMaterial = new THREE.SpriteMaterial({
+    map: appleMap,
+    color: 0xe6aa0a
+});
+const applePositions = [ 
+    [7, 5, 0],
+    [3, 1.7, 4], 
+    [2, 1.2, 1], 
+    [6,2, 3], 
+    [6.5,4, 4]
+];
+function locateAppleSprite(position){
+    const appleSprite = new THREE.Sprite(appleSpriteMaterial);
+    appleSprite.position.set(position[0],
+        position[1],
+        position[2],
+        position[3],
+        position[4],);
+    scene.add(appleSprite);
+}
+applePositions.forEach(locateAppleSprite);
 
 //AXIS
 const axesHelper = new THREE.AxesHelper(10);
 scene.add(axesHelper);
 
-// camera
+// camera____________________________________________________________________________________________________________
 const sizes = {
     width: 800,
     height: 600
