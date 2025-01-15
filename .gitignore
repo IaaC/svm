@@ -13,7 +13,10 @@
 
 #folders to ignore
 images/
-libraries/
+public/
+node_modules/
 
 #files to ignore
 test.html
+package-lock.json
+package.json
