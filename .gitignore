@@ -13,3 +13,7 @@
 
 #folders to ignore
 images/
+libraries/
+
+#files to ignore
+test.html

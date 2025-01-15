@@ -16,18 +16,18 @@
     padding-bottom: 50;
 }
 .nav_bar{
-    position: fixed;
     width: 200px;
     height: 100%;
     background: darkgray;
 }
 
 .text_container{
-    position: relative;
     background-color: cadetblue;
     width: 311px;
     height: 100%;
 }
 .vector_container{
     background-color: brown;
+    width: 642px;
+    height: 100%;
 }
