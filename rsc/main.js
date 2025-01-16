@@ -42,13 +42,14 @@ const appleSpriteMaterial = new THREE.SpriteMaterial({
 const applePositions = [ 
     [7, 5, 0],
     [3, 1.7, 4], 
-    [2, 1.2, 1], 
+    [2, 1, 1], 
     [6,2, 3], 
     [6.5,4, 4]
 ];
 function locateAppleSprite(position){
     const appleSprite = new THREE.Sprite(appleSpriteMaterial);
-    appleSprite.position.set(position[0],
+    appleSprite.position.set(
+        position[0],
         position[1],
         position[2],
         position[3],
@@ -58,19 +59,93 @@ function locateAppleSprite(position){
 applePositions.forEach(locateAppleSprite);
 
 //AXIS
-const axesHelper = new THREE.AxesHelper(10);
-scene.add(axesHelper);
+const xMaterial = new THREE.LineBasicMaterial(
+    {
+        color: 0xff0000,
+        linewidth: 3
+    }
+)
+const yMaterial = new THREE.LineBasicMaterial(
+    {
+        color: 0x00ff00,
+        linewidth: 3
+    }
+)
+const zMaterial = new THREE.LineBasicMaterial(
+    {
+        color: 0x0000ff,
+        linewidth: 3
+    }
+)
 
+//x axis
+const xGeometry = new THREE.BufferGeometry().setFromPoints(
+    [
+        new THREE.Vector3(0,0,0),
+        new THREE.Vector3(10,0,0)
+    ]
+)
+const xAxis = new THREE.Line(xGeometry, xMaterial)
+scene.add(xAxis)
+
+//y axis
+const yGeometry = new THREE.BufferGeometry().setFromPoints(
+    [
+        new THREE.Vector3(0,0,0),
+        new THREE.Vector3(0,10,0)
+    ]
+)
+const yAxis = new THREE.Line(yGeometry, yMaterial)
+scene.add(yAxis)
+
+//z axis
+const zGeometry = new THREE.BufferGeometry().setFromPoints(
+    [
+        new THREE.Vector3(0,0,0),
+        new THREE.Vector3(0,0,10)
+    ]
+)
+const zAxis = new THREE.Line(zGeometry, zMaterial)
+scene.add(zAxis)
+
+//DECISION PLANE
+
+//THIN LINE
+const planeGeometry = new THREE.BoxGeometry(12, 12, 0.05); 
+const planeMaterial = new THREE.MeshBasicMaterial(
+    { color: 0xff0000, 
+        side: THREE.DoubleSide, 
+        opacity: 1, 
+        transparent: true }); 
+const plane = new THREE.Mesh(planeGeometry, planeMaterial);
+
+//THICCCCC LINE
+const thickGeometry = new THREE.BoxGeometry(10, 10, 0.55); 
+const thickMaterial = new THREE.MeshBasicMaterial(
+    { color: 0xff0000, 
+        side: THREE.DoubleSide, 
+        opacity: 0.2, 
+        transparent: true }); 
+const thickPlane = new THREE.Mesh(thickGeometry, thickMaterial);
+const desicionPlaneGroup = new THREE.Group();
+
+desicionPlaneGroup.add(plane);
+desicionPlaneGroup.add(thickPlane)
+desicionPlaneGroup.translateX(5);
+desicionPlaneGroup.translateY(4.4);
+desicionPlaneGroup.rotateY(1.5708);
+desicionPlaneGroup.rotateX(0.893);
+scene.add(desicionPlaneGroup);
 // camera____________________________________________________________________________________________________________
 const sizes = {
     width: 800,
     height: 600
 }
 
-const camera = new THREE.PerspectiveCamera(75,sizes.width/sizes.height);
+const camera = new THREE.OrthographicCamera(-10,10,10,-10,0.1,1000);
 camera.position.x = 0;
 camera.position.y = 0;
-camera.position.z = 15;
+camera.position.z = 10;
 scene.add(camera);
 
 // renderer
