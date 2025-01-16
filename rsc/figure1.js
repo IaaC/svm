@@ -179,9 +179,9 @@ function highlightPlane() {
     decisionPlaneGroup.children.forEach(mesh => {
         if (mesh === plane) {
             mesh.material.color.set(0xff0000); // Keep original color
-            gsap.to(mesh.material.color, {duration: 0.5, r: 1, g: 0, b: 0}); // Transition to the same color for smoothness
+            gsap.to(mesh.material.color, {duration: 0.5, r: 1, g: 0, b: 0});
         } else {
-            gsap.to(mesh.material.color, {duration: 0.5, r: 0.5, g: 0.5, b: 0.5}); // Desaturate thickPlane
+            gsap.to(mesh.material.color, {duration: 0.5, r: 0.5, g: 0.5, b: 0.5});
         }
     });
 }
@@ -189,9 +189,9 @@ function highlightPlane() {
 function highlightThickPlane() {
     decisionPlaneGroup.children.forEach(mesh => {
         if (mesh === thickPlane) {
-            gsap.to(mesh.material.color, {duration: 0.5, r: 1, g: 0, b: 0}); // Highlight thickPlane
+            gsap.to(mesh.material.color, {duration: 0.5, r: 1, g: 0, b: 0});
         } else {
-            gsap.to(mesh.material.color, {duration: 0.5, r: 0.5, g: 0.5, b: 0.5}); // Desaturate other plane objects
+            gsap.to(mesh.material.color, {duration: 0.5, r: 0.5, g: 0.5, b: 0.5});
         }
     });
     highlightSprites();
@@ -199,59 +199,59 @@ function highlightThickPlane() {
 
 function desaturateSprites() {
     orangeSprites.forEach(sprite => {
-        gsap.to(sprite.material.color, {duration: 0.5, r: 0.5, g: 0.5, b: 0.5}); // Desaturate sprites
+        gsap.to(sprite.material.color, {duration: 0.5, r: 0.5, g: 0.5, b: 0.5});
     });
     appleSprites.forEach(sprite => {
-        gsap.to(sprite.material.color, {duration: 0.5, r: 0.5, g: 0.5, b: 0.5}); // Desaturate sprites
+        gsap.to(sprite.material.color, {duration: 0.5, r: 0.5, g: 0.5, b: 0.5});
     });
 }
 
 function highlightSupportVectors() {
 
-    // Desaturate other elements
+
     decisionPlane.childrenGroup.forEach(mesh => {
-        gsap.to(mesh.material.color, {duration: 0.5, r: 0.5, g: 0.5, b: 0.5}); // Desaturate thickPlane
+        gsap.to(mesh.material.color, {duration: 0.5, r: 0.5, g: 0.5, b: 0.5});
     });
 }
 
 function desaturateExceptThickPlane() {
     orangeSprites.forEach(sprite => {
-        gsap.to(sprite.material.color, {duration: 0.5, r: 0.5, g: 0.5, b: 0.5}); // Desaturate sprites
+        gsap.to(sprite.material.color, {duration: 0.5, r: 0.5, g: 0.5, b: 0.5});
     });
     appleSprites.forEach(sprite => {
-        gsap.to(sprite.material.color, {duration: 0.5, r: 0.5, g: 0.5, b: 0.5}); // Desaturate sprites
+        gsap.to(sprite.material.color, {duration: 0.5, r: 0.5, g: 0.5, b: 0.5}); 
     });
     axesGroup.children.forEach(line => {
-        gsap.to(line.material.color, {duration: 0.5, r: 0.5, g: 0.5, b: 0.5}); // Desaturate lines
+        gsap.to(line.material.color, {duration: 0.5, r: 0.5, g: 0.5, b: 0.5});
     });
     decisionPlaneGroup.children.forEach(mesh => {
         if (mesh !== thickPlane) {
-            gsap.to(mesh.material.color, {duration: 0.5, r: 0.5, g: 0.5, b: 0.5}); // Desaturate other planes
+            gsap.to(mesh.material.color, {duration: 0.5, r: 0.5, g: 0.5, b: 0.5});
         }
     });
 }
 
 function resetSprites() {
     orangeSprites.forEach(sprite => {
-        gsap.to(sprite.material.color, {duration: 0.5, r: 0.9, g: 0.7, b: 0.04}); // Smooth transition back
+        gsap.to(sprite.material.color, {duration: 0.5, r: 0.9, g: 0.7, b: 0.04});
     });
     appleSprites.forEach(sprite => {
-        gsap.to(sprite.material.color, {duration: 0.5, r: 0.9, g: 0.7, b: 0.04}); // Smooth transition back
+        gsap.to(sprite.material.color, {duration: 0.5, r: 0.9, g: 0.7, b: 0.04});
     });
 }
 
 function resetLines() {
     axesGroup.children.forEach(line => {
-        gsap.to(line.material.color, {duration: 0.5, r: line.material.color.r, g: line.material.color.g, b: line.material.color.b}); // Smooth transition back
+        gsap.to(line.material.color, {duration: 0.5, r: line.material.color.r, g: line.material.color.g, b: line.material.color.b});
     });
 }
 
 function resetPlanes() {
     decisionPlaneGroup.children.forEach(mesh => {
         if (mesh === plane) {
-            gsap.to(mesh.material.color, {duration: 0.5, r: 1, g: 0, b: 0}); // Keep plane saturated
+            gsap.to(mesh.material.color, {duration: 0.5, r: 1, g: 0, b: 0});
         } else {
-            gsap.to(mesh.material.color, {duration: 0.5, r: 0.9, g: 0.04, b: 0.04}); // Smooth transition back for thickPlane
+            gsap.to(mesh.material.color, {duration: 0.5, r: 0.9, g: 0.04, b: 0.04});
         }
     });
 }

@@ -93,6 +93,7 @@ const zAxis = new THREE.Line(zGeometry, zMaterial);
 axesGroup.add(xAxis);
 axesGroup.add(yAxis);
 axesGroup.add(zAxis);
+axesGroup.translateZ(-1.5);
 //scene.add(axesGroup);
 
 //DECISION PLANE
@@ -139,7 +140,6 @@ parentGroup.position.set(-7, -2, -4);
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    // Ensure initial states
     parentGroup.rotateX(90);
     parentGroup.translateZ(-3);
     plane.material.opacity = 0;
@@ -150,19 +150,17 @@ document.addEventListener('DOMContentLoaded', () => {
         const sliderValue = document.getElementById('rotationSlider').value;
         if (sliderValue == 2) {
             gsap.to(parentGroup.rotation, { duration: 1, x: Math.PI / 2 })
-            gsap.to(plane.material, { duration: 1, opacity: 0});
-            gsap.to(thickPlane.material, { duration: 1, opacity: 0 });
-            gsap.to(thickPlane.scale, { duration: 1, z: 0 });
+            gsap.to(plane.material, { duration: 2, opacity: 0});
+            gsap.to(thickPlane.material, { duration: 2, opacity: 0 });
+            gsap.to(thickPlane.scale, { duration: 2, z: 0 });
             
         } else if (sliderValue == 3) {
             gsap.to(parentGroup.rotation, { duration: 1, x: 0 })
-            gsap.to(plane.material, { duration: 1, opacity: 1});
-            gsap.to(thickPlane.material, { duration: 1, opacity: 0.2 });
-            gsap.to(thickPlane.scale, { duration: 1, z: 0.7 });
+            gsap.to(plane.material, { duration: 2, opacity: 1});
+            gsap.to(thickPlane.material, { duration: 2, opacity: 0.2 });
+            gsap.to(thickPlane.scale, { duration: 2, z: 0.7 });
         }
     }
-
-    // Add event listener to the rotation slider
     document.getElementById('rotationSlider').addEventListener('input', rotateGroup);
 });
 

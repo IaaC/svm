@@ -201,10 +201,9 @@ document.addEventListener('DOMContentLoaded', () => {
     plane4.material.opacity = 0;
 
     function animatePlanes() {
-        // Reset opacities and thickness
         plane.material.opacity = 0;
         thickPlane.material.opacity = 0;
-        thickPlane.scale.z = 0; // Reset thickness to 0
+        thickPlane.scale.z = 0;
         plane2.material.opacity = 0;
         plane3.material.opacity = 0;
         plane4.material.opacity = 0;
@@ -221,8 +220,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 .to(thickPlane.scale, { duration: 1, z: 0.7 });
                 
     }
-    
-    // Add event listener to the play button
     document.getElementById('playButton').addEventListener('click', animatePlanes);
 });
 
