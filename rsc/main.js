@@ -67,7 +67,7 @@ const xMaterial = new THREE.LineBasicMaterial(
 )
 const yMaterial = new THREE.LineBasicMaterial(
     {
-        color: 0x00ff00,
+        color: 0x196f3d,
         linewidth: 3
     }
 )
@@ -86,7 +86,6 @@ const xGeometry = new THREE.BufferGeometry().setFromPoints(
     ]
 )
 const xAxis = new THREE.Line(xGeometry, xMaterial)
-scene.add(xAxis)
 
 //y axis
 const yGeometry = new THREE.BufferGeometry().setFromPoints(
@@ -96,7 +95,6 @@ const yGeometry = new THREE.BufferGeometry().setFromPoints(
     ]
 )
 const yAxis = new THREE.Line(yGeometry, yMaterial)
-scene.add(yAxis)
 
 //z axis
 const zGeometry = new THREE.BufferGeometry().setFromPoints(
@@ -106,7 +104,12 @@ const zGeometry = new THREE.BufferGeometry().setFromPoints(
     ]
 )
 const zAxis = new THREE.Line(zGeometry, zMaterial)
-scene.add(zAxis)
+
+const axesGroup = new THREE.Group();
+axesGroup.add(xAxis)
+axesGroup.add(yAxis)
+axesGroup.add(zAxis)
+scene.add(axesGroup)
 
 //DECISION PLANE
 

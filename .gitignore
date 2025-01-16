@@ -12,7 +12,6 @@
 *.vsix
 
 #folders to ignore
-images/
 public/
 node_modules/
 
