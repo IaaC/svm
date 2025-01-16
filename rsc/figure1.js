@@ -1,12 +1,12 @@
-//importing THREE
-import { Color, LineBasicMaterial, Sprite } from "../node_modules/three/src/Three.Core.js";
+//importing three
+import { Color, LineBasicMaterial, Sprite } from "../node_modules/three/src/Three.Core.js"; 
 import * as THREE from "../node_modules/three/build/three.module.js";
 
 //importing gsap
 import { gsap } from "../../node_modules/gsap/index.js";
 
 // canvas 
-const canvas = document.querySelector('canvas.webgl')
+const canvas = document.querySelector('canvas.webgl1')
 
 // scene
 const scene = new THREE.Scene();
@@ -135,7 +135,7 @@ parentGroup.add(decisionPlaneGroup);
 
 scene.add(parentGroup);
 
-parentGroup.position.set(-7, -5, 0);
+parentGroup.position.set(-7, -2, 0);
 
 
 // HIGHLIGHT EFFECT__________________________________________________________________________________________________
