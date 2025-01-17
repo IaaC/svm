@@ -99,7 +99,7 @@ axesGroup.translateZ(-1.5);
 //DECISION PLANE
 const decisionPlaneGroup = new THREE.Group();
 
-const planeGeometry = new THREE.BoxGeometry(12, 12, 0.05); 
+const planeGeometry = new THREE.BoxGeometry(7.5, 7.5, 0.05); 
 const planeMaterial = new THREE.MeshBasicMaterial({
     color: 0xff0000,
     side: THREE.DoubleSide,
@@ -108,7 +108,7 @@ const planeMaterial = new THREE.MeshBasicMaterial({
 });
 const plane = new THREE.Mesh(planeGeometry, planeMaterial);
 
-const thickGeometry = new THREE.BoxGeometry(10, 10, 0.7); 
+const thickGeometry = new THREE.BoxGeometry(6.5, 6.5, 0.7); 
 const thickMaterial = new THREE.MeshBasicMaterial({
     color: 0xff0000,
     side: THREE.DoubleSide,
@@ -119,8 +119,9 @@ const thickPlane = new THREE.Mesh(thickGeometry, thickMaterial);
 
 decisionPlaneGroup.add(plane);
 decisionPlaneGroup.add(thickPlane);
-decisionPlaneGroup.translateX(5);
+decisionPlaneGroup.translateX(4.4);
 decisionPlaneGroup.translateY(4);
+decisionPlaneGroup.translateZ(2);
 decisionPlaneGroup.rotateY(1.5708);
 decisionPlaneGroup.rotateX(1.55);
 
@@ -158,7 +159,7 @@ document.addEventListener('DOMContentLoaded', () => {
             gsap.to(parentGroup.rotation, { duration: 1, x: 0 })
             gsap.to(plane.material, { duration: 2, opacity: 1});
             gsap.to(thickPlane.material, { duration: 2, opacity: 0.2 });
-            gsap.to(thickPlane.scale, { duration: 2, z: 0.7 });
+            gsap.to(thickPlane.scale, { duration: 2, z: 0.9 });
         }
     }
     document.getElementById('rotationSlider').addEventListener('input', rotateGroup);

@@ -35,10 +35,16 @@
     height: 100%;
 }
 .paragraph{
+    text-align: justify;
     padding-top: 10px;
     padding-bottom: 10px;
     padding-left: 10px;
     padding-right: 10px;
+    font-family: monospace;
+    font-size: medium;
+}
+.animation{
+    height: 400px;
 }
 h3{
     padding-top: 40px;
