@@ -135,7 +135,7 @@ parentGroup.add(decisionPlaneGroup);
 
 scene.add(parentGroup);
 
-parentGroup.position.set(-6., -3, 0);
+parentGroup.position.set(-6.,-5, 0);
 parentGroup.scale.set(1.4,1.4);
 
 //animation__________________________________________________________________________________________________________

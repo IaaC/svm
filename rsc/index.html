@@ -28,53 +28,46 @@
                 </nav>
             </div>
 
-            <div class="text_container">
-                <h2>WHAT IS SVM?</h2>
-                <h3>OVERVIEW</h3>
-                <p class="paragraph">     
+            <div class="main_wrapper">
+                <div class="text_container">
+                    <h2>WHAT IS SVM?</h2>
+                    <h3>OVERVIEW</h3>
+                    <p class="paragraph">     
                     From the name Support Vector Machines, SVM is a machine learning algorithm that can classify multidimensional data. This is done using a <span class="keyword" data-type="hyperplane">hyperplane</span>, which is essentially a decision boundary, that will divide and separate the data points into clear and well-defined groups.
                     
                     The term ‘<span class="keyword" data-type="support_vectors">Support Vectors</span>’ refers to the points from the data groups that have the shortest Euclidean distance to the hyperplane, defining a <span class="keyword" data-type="margin">margin</span>. This determines how well the model is performing. The larger the margin’s width, the better the model as the data groups will be well defined and the predictions will be more accurate.
-                </p>
-                <div class="animation">
-                    <canvas class="webgl1"></canvas>
-                    <script type="module" src="./figure1.js"></script>
+                    </p>
+                    <div class="animation">
+                        <canvas class="webgl1"></canvas>
+                        <script type="module" src="./figure1.js"></script>
+                    </div>
+                        <h3>OPERATION</h3>
+                        <p class="paragraph">
+                        In very simple terms, the process of execution consists in a series of operations where the hyper plane accommodates itself between data points until it finds the placement with the largest margin.
+                        </p>
+                    <div class="animation">
+                        <canvas class="webgl2"></canvas>
+                        <script type="module" src="./figure2.js"></script>
+                        <button class="button" id="playButton">play</button>
+                    </div>
+                        <p class="paragraph">SVM model can also operate with ‘non-splitable’ data by using a feature called the ‘kernel trick’. this hyper parameter allows us to make the data split by accessing a higher dimensional plane where the data can by separated by the splitting plane.
+                        </p>
+                    <div class="animation">
+                        <canvas class="webgl3"></canvas>
+                        <script type="module" src="./figure3.js"></script>
+                        <div class="slider">
+                            <label for="rotationSlider">Kernel Trick:</label>
+                            <input type="range" id="rotationSlider" min="2" max="3" step="1" value="1">  
+                        </div>
+                        
+                    </div>
+
                 </div>
-                <h3>OPERATION</h3>
-                <p class="paragraph">
-                    In very simple terms, the process of execution consists in a series of operations where the hyper plane accommodates itself between data points until it finds the placement with the largest margin.
-                </p>
-                <div class="animation">
-                    <canvas class="webgl2"></canvas>
-                    <script type="module" src="./figure2.js"></script>
-                    <button id="playButton">play</button>
-                </div>
-                <p class="paragraph">SVM model can also operate with ‘non-splitable’ data by using a feature called the ‘kernel trick’. this hyper parameter allows us to make the data split by accessing a higher dimensional plane where the data can by separated by the splitting plane.
-                </p>
-                <div class="animation">
-                    <canvas class="webgl3"></canvas>
-                    <script type="module" src="./figure3.js"></script>
-                    <label for="rotationSlider">Kernel Trick:</label>
-                <input type="range" id="rotationSlider" min="2" max="3" step="1" value="1">
+
+                <div class="text_container">
+                    <h2>HOW TO USE SVM</h2>
+                    
                 </div>
             </div>
-
-            <div>
-
-            </div>
-
-        </div>
-        <!--show case general uses and aplications-->
-        <div>
-
-        </div>
-        <!--show references of its aplications in architecture-->
-        <div>
-
-        </div>
-        <!--show in technical terms how to use it and give a script example-->
-        <div>
-
-        </div>
     </body>
 </html>
