@@ -187,7 +187,8 @@ parentGroup.add(decisionPlaneGroup);
 
 scene.add(parentGroup);
 
-parentGroup.position.set(-7, -2, 0);
+parentGroup.position.set(-6., -7, 0);
+parentGroup.scale.set(1.4,1.4);
 
 // animation____________________________________________________________________________________________________________
 
@@ -226,8 +227,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // camera____________________________________________________________________________________________________________
 const sizes = {
-    width: 800,
-    height: 600
+    width: 600,
+    height: 400
 }
 
 const camera = new THREE.OrthographicCamera(-10,10,10,-10,0.1,1000);

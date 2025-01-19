@@ -13,19 +13,16 @@
                 <nav>
                     <ul>
                         <li>
-                            <a href="#">WHAT IS SVM</a>
+                            <a href="#">• WHAT IS SVM</a>
                         </li>
                         <li>
-                            <a href="#">LEARN HOW</a>
+                            <a href="#">• LEARN HOW</a>
                         </li>
                         <li>
-                            <a href="#">ARCHIRECTURAL APPROACHES</a>
+                            <a href="#">• ARCHIRECTURAL APPROACHES</a>
                         </li>
                         <li>
-                            <a href="#">PRACTICE MAKES PERFECT!</a>
-                        </li>
-                        <li>
-                            <a href="#">CONTACT N OTHER STUFF I GUESS...</a>
+                            <a href="#">• REFERENCES</a>
                         </li>
                     </ul>
                 </nav>
@@ -37,35 +34,29 @@
                 <p class="paragraph">     
                     Otherwise known as Support Vector Machines, it is a machine learning algorithm that is able to classify multidimensional data using a <span class="keyword" data-type="hyperplane">hyperplane</span>, that will divide nd separate the data points into clear and well defined groups.
                     
-                    The term ‘<span class="keyword" data-type="support_vectors">Support Vectors</span> ’ refers to the points from the data groups that have the shortest euclidean distance to the hyperplane, defining the <span class="keyword" data-type="margin">margin</span>, which defines how well is the model performing. The bigger the margin distance, the better the performance as the data groups will be well defined and the predictions will be more accurate.
+                    The term ‘<span class="keyword" data-type="support_vectors">Support Vectors</span>’ refers to the points from the data groups that have the shortest euclidean distance to the hyperplane, defining the <span class="keyword" data-type="margin">margin</span>, which defines how well is the model performing. The bigger the margin distance, the better the performance as the data groups will be well defined and the predictions will be more accurate.
                 </p>
-                <h3>OPERATION</h3>
-                <p class="paragraph">
-                    In very simple terms, the process of execution consists in a series of operations where the hyper plane accommodates itself between data points until it finds the placement with the largest margin.
-                    
-                    SVM model can also operate with ‘non-splitable’ data by using a feature called the ‘kernel trick’. this hyper parameter allows us to make the data split by accessing a higher dimensional plane where the data can by separated by the splitting plane.
-                    
-                </p>
-            </div>
-            <div class="vector_container">
                 <div class="animation">
                     <canvas class="webgl1"></canvas>
                     <script type="module" src="./figure1.js"></script>
                 </div>
+                <h3>OPERATION</h3>
+                <p class="paragraph">
+                    In very simple terms, the process of execution consists in a series of operations where the hyper plane accommodates itself between data points until it finds the placement with the largest margin.
+                </p>
                 <div class="animation">
                     <canvas class="webgl2"></canvas>
                     <script type="module" src="./figure2.js"></script>
+                    <button id="playButton">play</button>
                 </div>
-
-                <button id="playButton">play</button>
-
+                <p class="paragraph">SVM model can also operate with ‘non-splitable’ data by using a feature called the ‘kernel trick’. this hyper parameter allows us to make the data split by accessing a higher dimensional plane where the data can by separated by the splitting plane.
+                </p>
                 <div class="animation">
                     <canvas class="webgl3"></canvas>
                     <script type="module" src="./figure3.js"></script>
-                </div>
-                <label for="rotationSlider">Kernel Trick:</label>
+                    <label for="rotationSlider">Kernel Trick:</label>
                 <input type="range" id="rotationSlider" min="2" max="3" step="1" value="1">
-
+                </div>
             </div>
 
         </div>

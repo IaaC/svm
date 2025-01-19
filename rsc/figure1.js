@@ -140,123 +140,57 @@ parentGroup.position.set(-7, -2, 0);
 
 // HIGHLIGHT EFFECT__________________________________________________________________________________________________
 
-// LOGIC
-const keywords = document.querySelectorAll('span[data-type]'); 
-keywords.forEach(keyword => { 
-    keyword.addEventListener('mouseover', () => { 
-        const type = keyword.getAttribute('data-type'); 
-        highlightObjects(type);
-    }); 
-    keyword.addEventListener('mouseout', () => { 
-        resetHighlighting(); 
-    }); 
+// Function to desaturate and blur
+function desaturateAndBlur(objects, duration) {
+    objects.forEach(obj => {
+        gsap.to(obj.material.color, { duration: duration, r: 0.5, g: 0.5, b: 0.5 });
+        gsap.to(obj.material, { duration: duration, opacity: 0.5 });
+    });
+}
+
+// Function to reset objects
+function resetObjects(objects, duration) {
+    objects.forEach(obj => {
+        gsap.to(obj.material.color, { duration: duration, r: obj.userData.originalColor.r, g: obj.userData.originalColor.g, b: obj.userData.originalColor.b });
+        gsap.to(obj.material, { duration: duration, opacity: obj.userData.originalOpacity });
+    });
+}
+
+// Store original colors and opacity
+[...orangeSprites, ...appleSprites, plane, thickPlane].forEach(obj => {
+    obj.userData.originalColor = {
+        r: obj.material.color.r,
+        g: obj.material.color.g,
+        b: obj.material.color.b
+    };
+    obj.userData.originalOpacity = obj.material.opacity;
 });
 
-function highlightObjects(type) { 
-    resetHighlighting(); 
-    
-    switch (type) { 
-        case 'hyperplane': 
-            highlightPlane(); 
-            desaturateSprites(); 
-            break; 
-        case 'margin': 
-            desaturateExceptThickPlane()
-            break; 
-        case 'support_vectors': 
-            highlightSupportVectors(); 
-            break; 
-    } 
-}
-
-function resetHighlighting() {
-    resetSprites();
-    resetLines();
-    resetPlanes();
-}
-
-function highlightPlane() {
-    decisionPlaneGroup.children.forEach(mesh => {
-        if (mesh === plane) {
-            mesh.material.color.set(0xff0000); // Keep original color
-            gsap.to(mesh.material.color, {duration: 0.5, r: 1, g: 0, b: 0});
-        } else {
-            gsap.to(mesh.material.color, {duration: 0.5, r: 0.5, g: 0.5, b: 0.5});
+// Mouseover and mouseout event listeners
+document.querySelectorAll('.keyword').forEach(keyword => {
+    keyword.addEventListener('mouseover', (event) => {
+        const type = event.target.getAttribute('data-type');
+        
+        switch (type) {
+            case 'hyperplane':
+                desaturateAndBlur([...orangeSprites, ...appleSprites, thickPlane], 0.5);
+                break;
+            case 'support_vectors':
+                desaturateAndBlur([plane, thickPlane], 0.5);
+                break;
+            case 'margin':
+                desaturateAndBlur([...orangeSprites, ...appleSprites, plane], 0.5);
+                break;
         }
     });
-}
 
-function highlightThickPlane() {
-    decisionPlaneGroup.children.forEach(mesh => {
-        if (mesh === thickPlane) {
-            gsap.to(mesh.material.color, {duration: 0.5, r: 1, g: 0, b: 0});
-        } else {
-            gsap.to(mesh.material.color, {duration: 0.5, r: 0.5, g: 0.5, b: 0.5});
-        }
+    keyword.addEventListener('mouseout', () => {
+        resetObjects([...orangeSprites, ...appleSprites, plane, thickPlane], 0.5);
     });
-    highlightSprites();
-}
-
-function desaturateSprites() {
-    orangeSprites.forEach(sprite => {
-        gsap.to(sprite.material.color, {duration: 0.5, r: 0.5, g: 0.5, b: 0.5});
-    });
-    appleSprites.forEach(sprite => {
-        gsap.to(sprite.material.color, {duration: 0.5, r: 0.5, g: 0.5, b: 0.5});
-    });
-}
-
-function highlightSupportVectors() {
-
-
-    decisionPlane.childrenGroup.forEach(mesh => {
-        gsap.to(mesh.material.color, {duration: 0.5, r: 0.5, g: 0.5, b: 0.5});
-    });
-}
-
-function desaturateExceptThickPlane() {
-    orangeSprites.forEach(sprite => {
-        gsap.to(sprite.material.color, {duration: 0.5, r: 0.5, g: 0.5, b: 0.5});
-    });
-    appleSprites.forEach(sprite => {
-        gsap.to(sprite.material.color, {duration: 0.5, r: 0.5, g: 0.5, b: 0.5}); 
-    });
-    axesGroup.children.forEach(line => {
-        gsap.to(line.material.color, {duration: 0.5, r: 0.5, g: 0.5, b: 0.5});
-    });
-    decisionPlaneGroup.children.forEach(mesh => {
-        if (mesh !== thickPlane) {
-            gsap.to(mesh.material.color, {duration: 0.5, r: 0.5, g: 0.5, b: 0.5});
-        }
-    });
-}
-
-function resetSprites() {
-    orangeSprites.forEach(sprite => {
-        gsap.to(sprite.material.color, {duration: 0.5, r: 0.9, g: 0.7, b: 0.04});
-    });
-    appleSprites.forEach(sprite => {
-        gsap.to(sprite.material.color, {duration: 0.5, r: 0.9, g: 0.7, b: 0.04});
-    });
-}
-
-function resetLines() {
-    axesGroup.children.forEach(line => {
-        gsap.to(line.material.color, {duration: 0.5, r: line.material.color.r, g: line.material.color.g, b: line.material.color.b});
-    });
-}
-
-function resetPlanes() {
-    decisionPlaneGroup.children.forEach(mesh => {
-        if (mesh === plane) {
-            gsap.to(mesh.material.color, {duration: 0.5, r: 1, g: 0, b: 0});
-        } else {
-            gsap.to(mesh.material.color, {duration: 0.5, r: 0.9, g: 0.04, b: 0.04});
-        }
-    });
-}
+});
 
 // camera____________________________________________________________________________________________________________
+
 const sizes = {
     width: 800,
     height: 600
