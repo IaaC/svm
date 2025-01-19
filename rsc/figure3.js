@@ -143,7 +143,7 @@ parentGroup.scale.set(1.4,1.4);
 document.addEventListener('DOMContentLoaded', () => {
 
     parentGroup.rotateX(90);
-    parentGroup.translateZ(-3);
+    parentGroup.translateZ(-4.5);
     plane.material.opacity = 0;
     thickPlane.material.opacity = 0;
     thickPlane.scale.z = 0;
