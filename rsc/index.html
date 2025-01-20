@@ -66,7 +66,19 @@
 
                 <div class="text_container">
                     <h2>HOW TO USE SVM</h2>
-                    <p></p>
+                    <h3>GENERAL CONSIDERATIONS</h3>
+                    <p class="paragraph">
+                        First, as with any supervised learning algorithm, it is key to have a good dataset with no missing values. It’s also crucial that these values are either numerical or categorical or can be converted into those data types. To achieve this, libraries like Pandas and sci-kit learn offer multiple methods for data amputation and imputation.
+                    </p>
+                    <h3>HYPER PARAMETERS</h3>
+                    <p class="paragraph">
+                        To properly work with SVM (or any other algorithm in any case) it is necessary to understand what are the editable parameters that we can manipulate and how the inputted values affect our predictions.
+                    </p>
+                    <p class="paragraph">
+                        <span class="keyword">C:</span> This might be the most crucial of parameters in SVM. It allows us to control the tolerance for misclassification of data points to achieve a greater hyperplane margin. A lower C value allows for a larger margin and more potential for misclassifications. A larger C value will do the opposite.
+Grid Search and Randomized Search are common methods for tunning the c value.
+
+                    </p>
                     
                 </div>
             </div>
