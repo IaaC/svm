@@ -140,7 +140,6 @@ parentGroup.position.set(-7, -2, 0);
 
 // HIGHLIGHT EFFECT__________________________________________________________________________________________________
 
-// Function to desaturate and blur
 function desaturateAndBlur(objects, duration) {
     objects.forEach(obj => {
         gsap.to(obj.material.color, { duration: duration, r: 0.5, g: 0.5, b: 0.5 });
@@ -148,7 +147,6 @@ function desaturateAndBlur(objects, duration) {
     });
 }
 
-// Function to reset objects
 function resetObjects(objects, duration) {
     objects.forEach(obj => {
         gsap.to(obj.material.color, { duration: duration, r: obj.userData.originalColor.r, g: obj.userData.originalColor.g, b: obj.userData.originalColor.b });
@@ -156,7 +154,6 @@ function resetObjects(objects, duration) {
     });
 }
 
-// Store original colors and opacity
 [...orangeSprites, ...appleSprites, plane, thickPlane].forEach(obj => {
     obj.userData.originalColor = {
         r: obj.material.color.r,
@@ -166,7 +163,6 @@ function resetObjects(objects, duration) {
     obj.userData.originalOpacity = obj.material.opacity;
 });
 
-// Mouseover and mouseout event listeners
 document.querySelectorAll('.keyword').forEach(keyword => {
     keyword.addEventListener('mouseover', (event) => {
         const type = event.target.getAttribute('data-type');
