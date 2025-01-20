@@ -76,10 +76,35 @@
                     </p>
                     <p class="paragraph">
                         <span class="keyword">C:</span> This might be the most crucial of parameters in SVM. It allows us to control the tolerance for misclassification of data points to achieve a greater hyperplane margin. A lower C value allows for a larger margin and more potential for misclassifications. A larger C value will do the opposite.
-Grid Search and Randomized Search are common methods for tunning the c value.
-
+                        Grid Search and Randomized Search are common methods for tunning the c value.
                     </p>
-                    
+                    <p class="paragraph">
+                        <span class="keyword">Kernel:</span> As we saw before with the ‘Kernel trick’, this hyperparameter allows us to handle data that can be separated linearly by bringing it to a higher dimensional space where linear separation is possible. The are many types of kernel application besides linearly:
+                    </p>
+                        <p class="para2">
+                            <span class="keyword">Polynomial:</span> Used when data simply cannot be separated by a linear hyperplane. To use this kernel it is also necessary to tune the ‘Degree’ and ‘Coef0’ hyperparameters.
+                        </p>
+                        <p class="para2">
+                            <span class="keyword">Radial Basis Function (RBF):</span> It is the standard non-linear kernel. It creates an area around the data points forming groups. It is affected by the Gamma(y) hyperparameter, where a smaller ‘y’ value means a loose perimeter around the points, while a larger value creates a tighter and more defined curve around the data groups.
+                        </p>
+                        <p class="para2">
+                            <span class="keyword">Sigmoid:</span> This kernel creates a series of non-linear curves that separate the data points in a more detailed way than the linear classification method. For this kernel it is necessary to tune the Gamma and Coef0 hyperparameters.
+                        </p>
+                    <p class="paragraph">
+                        <span class="keyword">Gamma(y):</span> It affects the radius of influence that the data points have. A large gamma value means a smaller and more precise radius. This can be beneficial for more precise results, but it can also lead to overfitting. 
+                    </p>
+                    <p class="paragraph">
+                        <span class="keyword">Degree:</span> It affects the complexity of the polynomial kernel. A larger number creates more complexity.
+                    </p>
+                    <p class="paragraph">
+                        <span class="keyword">Coef0:</span> in polynomial and sigmoid kernels it affects the position of the decision boundary. Positive value makes the boundary closer to the positive side of chart. A negative value does the opposite.
+                    </p> 
+                    <p class="paragraph">
+                        <span class="keyword">Probability:</span> This is a Boolean parameter that, when set to True, allows the algorithm to output a probabilistic estimate.
+                    </p>   
+                    <p class="paragraph">
+                        <span class="keyword">Max Iter:</span> Allows us to set the maximum number of iterations for training our algorithm. This can have a huge impact on the training time and the model fitting.
+                    </p>   
                 </div>
             </div>
     </body>
