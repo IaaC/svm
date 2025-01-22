@@ -1,9 +1,9 @@
 // importing three
-import { Color, LineBasicMaterial, Sprite} from "../node_modules/three/src/Three.Core.js"; 
-import * as THREE from "../node_modules/three/build/three.module.js";
+import { Color, LineBasicMaterial, Sprite} from "https://unpkg.com/three@0.172.0/build/three.module.js"; 
+import * as THREE from "https://unpkg.com/three@0.172.0/build/three.module.js";
 
 //importing gsap
-import { gsap } from "../../node_modules/gsap/index.js";
+import { gsap } from "gsap";
 
 // canvas 
 const canvas = document.querySelector('canvas.webgl3')

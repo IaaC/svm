@@ -1,12 +1,12 @@
-//importing three
-import { Color, LineBasicMaterial, Sprite } from "../node_modules/three/src/Three.Core.js"; 
-import * as THREE from "../node_modules/three/build/three.module.js";
+// importing three
+import { Color, LineBasicMaterial, Sprite} from "https://unpkg.com/three@0.172.0/build/three.module.js"; 
+import * as THREE from "https://unpkg.com/three@0.172.0/build/three.module.js";
 
 //importing gsap
-import { gsap } from "../../node_modules/gsap/index.js";
+import { gsap } from "gsap";
 
 // canvas 
-const canvas = document.querySelector('canvas.webgl1')
+const canvas = document.querySelector('canvas.webgl2')
 
 // scene
 const scene = new THREE.Scene();
@@ -107,7 +107,7 @@ const planeMaterial = new THREE.MeshBasicMaterial({
 });
 const plane = new THREE.Mesh(planeGeometry, planeMaterial);
 
-const thickGeometry = new THREE.BoxGeometry(10, 10, 0.55); 
+const thickGeometry = new THREE.BoxGeometry(10, 10, 0.7); 
 const thickMaterial = new THREE.MeshBasicMaterial({
     color: 0xff0000,
     side: THREE.DoubleSide,
@@ -116,13 +116,65 @@ const thickMaterial = new THREE.MeshBasicMaterial({
 });
 const thickPlane = new THREE.Mesh(thickGeometry, thickMaterial);
 
+const thickGeometry2 = new THREE.BoxGeometry(10, 10, 0.025); 
+const thickMaterial2 = new THREE.MeshBasicMaterial({
+    color: 0x0000ff,
+    side: THREE.DoubleSide,
+    opacity: 1,
+    transparent: true
+});
+const plane2 = new THREE.Mesh(thickGeometry2, thickMaterial2);
+
+const thickGeometry3 = new THREE.BoxGeometry(10, 10, 0.025); 
+const thickMaterial3 = new THREE.MeshBasicMaterial({
+    color: 0x0000ff,
+    side: THREE.DoubleSide,
+    opacity: 1,
+    transparent: true
+});
+const plane3 = new THREE.Mesh(thickGeometry3, thickMaterial3);
+
+const thickGeometry4 = new THREE.BoxGeometry(10, 10, 0.025); 
+const thickMaterial4 = new THREE.MeshBasicMaterial({
+    color: 0x0000ff,
+    side: THREE.DoubleSide,
+    opacity: 1,
+    transparent: true
+});
+const plane4 = new THREE.Mesh(thickGeometry4, thickMaterial4);
+
+plane.translateX(5);
+plane.translateY(4.4);
+plane.rotateY(1.5708);
+plane.rotateX(0.893);
+
+thickPlane.translateX(5);
+thickPlane.translateY(4.4);
+thickPlane.rotateY(1.5708);
+thickPlane.rotateX(0.893);
+
+plane2.translateX(6);
+plane2.translateY(4.4);
+plane2.rotateY(1.5708);
+plane2.rotateX(0.5);
+
+plane3.translateX(4.5);
+plane3.translateY(4.4);
+plane3.rotateY(1.5708);
+plane3.rotateX(2.3);
+
+plane4.translateX(5);
+plane4.translateY(3);
+plane4.rotateY(1.5708);
+plane4.rotateX(1.7);
+
+
 decisionPlaneGroup.add(plane);
 decisionPlaneGroup.add(thickPlane);
-decisionPlaneGroup.translateX(5);
-decisionPlaneGroup.translateY(4.4);
-decisionPlaneGroup.rotateY(1.5708);
-decisionPlaneGroup.rotateX(0.893);
-//scene.add(decisionPlaneGroup);
+decisionPlaneGroup.add(plane2);
+decisionPlaneGroup.add(plane3);
+decisionPlaneGroup.add(plane4);
+scene.add(decisionPlaneGroup);
 
 // MOVE TO CENTER
 
@@ -135,61 +187,48 @@ parentGroup.add(decisionPlaneGroup);
 
 scene.add(parentGroup);
 
-parentGroup.position.set(-7, -2, 0);
+parentGroup.position.set(-6., -7, 0);
+parentGroup.scale.set(1.4,1.4);
 
+// animation____________________________________________________________________________________________________________
 
-// HIGHLIGHT EFFECT__________________________________________________________________________________________________
+document.addEventListener('DOMContentLoaded', () => {
 
-function desaturateAndBlur(objects, duration) {
-    objects.forEach(obj => {
-        gsap.to(obj.material.color, { duration: duration, r: 0.5, g: 0.5, b: 0.5 });
-        gsap.to(obj.material, { duration: duration, opacity: 0.5 });
-    });
-}
+    plane.material.opacity = 0; 
+    thickPlane.material.opacity = 0;
+    thickPlane.scale.z = 0;
+    plane2.material.opacity = 0; 
+    plane3.material.opacity = 0; 
+    plane4.material.opacity = 0;
 
-function resetObjects(objects, duration) {
-    objects.forEach(obj => {
-        gsap.to(obj.material.color, { duration: duration, r: obj.userData.originalColor.r, g: obj.userData.originalColor.g, b: obj.userData.originalColor.b });
-        gsap.to(obj.material, { duration: duration, opacity: obj.userData.originalOpacity });
-    });
-}
-
-[...orangeSprites, ...appleSprites, plane, thickPlane].forEach(obj => {
-    obj.userData.originalColor = {
-        r: obj.material.color.r,
-        g: obj.material.color.g,
-        b: obj.material.color.b
-    };
-    obj.userData.originalOpacity = obj.material.opacity;
+    function animatePlanes() {
+        plane.material.opacity = 0;
+        thickPlane.material.opacity = 0;
+        thickPlane.scale.z = 0;
+        plane2.material.opacity = 0;
+        plane3.material.opacity = 0;
+        plane4.material.opacity = 0;
+    
+        let timeline = gsap.timeline();
+        timeline.to(plane4.material, { duration: 1, opacity: 1 })
+                .to(plane4.material, { duration: 1, opacity: 0 }, "+=1")
+                .to(plane3.material, { duration: 1, opacity: 1 })
+                .to(plane3.material, { duration: 1, opacity: 0 }, "+=1")
+                .to(plane2.material, { duration: 1, opacity: 1 })
+                .to(plane2.material, { duration: 1, opacity: 0 }, "+=1")
+                .to(plane.material, { duration: 1, opacity: 1 })
+                .to(thickPlane.material, { duration: 1, opacity: 0.2 })
+                .to(thickPlane.scale, { duration: 1, z: 0.7 });
+                
+    }
+    document.getElementById('playButton').addEventListener('click', animatePlanes);
 });
 
-document.querySelectorAll('.keyword').forEach(keyword => {
-    keyword.addEventListener('mouseover', (event) => {
-        const type = event.target.getAttribute('data-type');
-        
-        switch (type) {
-            case 'hyperplane':
-                desaturateAndBlur([...orangeSprites, ...appleSprites, thickPlane], 0.5);
-                break;
-            case 'support_vectors':
-                desaturateAndBlur([plane, thickPlane], 0.5);
-                break;
-            case 'margin':
-                desaturateAndBlur([...orangeSprites, ...appleSprites, plane], 0.5);
-                break;
-        }
-    });
-
-    keyword.addEventListener('mouseout', () => {
-        resetObjects([...orangeSprites, ...appleSprites, plane, thickPlane], 0.5);
-    });
-});
 
 // camera____________________________________________________________________________________________________________
-
 const sizes = {
-    width: 800,
-    height: 600
+    width: 600,
+    height: 400
 }
 
 const camera = new THREE.OrthographicCamera(-10,10,10,-10,0.1,1000);

@@ -13,16 +13,16 @@
                 <nav>
                     <ul>
                         <li>
-                            <a href="#WHAT IS SVM" class="nav_hover">• WHAT IS SVM</a>
+                            <a href="#WHAT IS SVM" class="nav_hover">WHAT IS SVM</a>
                         </li>
                         <li>
-                            <a href="#LEARN HOW" class="nav_hover">• LEARN HOW</a>
+                            <a href="#LEARN HOW" class="nav_hover">LEARN HOW</a>
                         </li>
                         <li>
-                            <a href="#ARCH APPROACHES" class="nav_hover">• ARCH APPROACHES</a>
+                            <a href="#ARCH APPROACHES" class="nav_hover">ARCH APPROACHES</a>
                         </li>
                         <li>
-                            <a href="#REFERENCES" class="nav_hover">• REFERENCES</a>
+                            <a href="#REFERENCES" class="nav_hover">REFERENCES</a>
                         </li>
                     </ul>
                 </nav>
@@ -35,7 +35,7 @@
                     <p class="paragraph">     
                     From the name Support Vector Machines, SVM is a machine learning algorithm that can classify multidimensional data. This is done using a <span class="keyword" data-type="hyperplane">hyperplane</span>, which is essentially a decision boundary, that will divide and separate the data points into clear and well-defined groups.
                     
-                    The term ‘<span class="keyword" data-type="support_vectors">Support Vectors</span>’ refers to the points from the data groups that have the shortest Euclidean distance to the hyperplane, defining a <span class="keyword" data-type="margin">margin</span>. This determines how well the model is performing. The larger the margin’s width, the better the model as the data groups will be well defined and the predictions will be more accurate.
+                    The term   <span class="keyword" data-type="support_vectors">Support Vectors</span> refers to the points from the data groups that have the shortest Euclidean distance to the hyperplane, defining a <span class="keyword" data-type="margin">margin</span>. This determines how well the model is performing. The larger the margin s width, the better the model as the data groups will be well defined and the predictions will be more accurate.
                     </p>
                     <div class="animation">
                         <canvas class="webgl1"></canvas>
@@ -50,7 +50,7 @@
                         <script type="module" src="./figure2.js"></script>
                         <button class="button" id="playButton">play</button>
                     </div>
-                        <p class="paragraph">The SVM model can also operate with ‘non-splitable’ data by using a feature called the ‘kernel trick’. This hyper parameter allows us to make the data split by accessing a higher dimensional plane where the data can be separated by the splitting plane.
+                        <p class="paragraph">The SVM model can also operate with non-splitable data by using a feature called the kernel trick. This hyperparameter allows us to make the data split by accessing a higher dimensional plane where the data can be separated by the splitting plane.
                         </p>
                     <div class="animation">
                         <canvas class="webgl3"></canvas>
@@ -68,7 +68,7 @@
                     <h2 id="LEARN HOW">HOW TO USE SVM</h2>
                     <h3>GENERAL CONSIDERATIONS</h3>
                     <p class="paragraph">
-                        First, as with any supervised learning algorithm, it is key to have a good dataset with no missing values. It’s also crucial that these values are either numerical or categorical or can be converted into those data types. To achieve this, libraries like Pandas and sci-kit learn offer multiple methods for data amputation and imputation.
+                        First, as with any supervised learning algorithm, it is key to have a good dataset with no missing values. It s also crucial that these values are either numerical or categorical or can be converted into those data types. To achieve this, libraries like Pandas and sci-kit learn offer multiple methods for data amputation and imputation.
                     </p>
                     <h3>HYPER PARAMETERS</h3>
                     <p class="paragraph">
@@ -79,13 +79,13 @@
                         Grid Search and Randomized Search are common methods for tunning the c value.
                     </p>
                     <p class="paragraph">
-                        <span class="keyword">Kernel:</span> As we saw before with the ‘Kernel trick’, this hyperparameter allows us to handle data that can be separated linearly by bringing it to a higher dimensional space where linear separation is possible. The are many types of kernel application besides linearly:
+                        <span class="keyword">Kernel:</span> As we saw before with the Kernel trick, this hyperparameter allows us to handle data that can be separated linearly by bringing it to a higher dimensional space where linear separation is possible. The are many types of kernel application besides linearly:
                     </p>
                         <p class="para2">
-                            <span class="keyword">Polynomial:</span> Used when data simply cannot be separated by a linear hyperplane. To use this kernel it is also necessary to tune the ‘Degree’ and ‘Coef0’ hyperparameters.
+                            <span class="keyword">Polynomial:</span> Used when data simply cannot be separated by a linear hyperplane. To use this kernel it is also necessary to tune the   Degree  and   Coef0  hyperparameters.
                         </p>
                         <p class="para2">
-                            <span class="keyword">Radial Basis Function (RBF):</span> It is the standard non-linear kernel. It creates an area around the data points forming groups. It is affected by the Gamma(y) hyperparameter, where a smaller ‘y’ value means a loose perimeter around the points, while a larger value creates a tighter and more defined curve around the data groups.
+                            <span class="keyword">Radial Basis Function (RBF):</span> It is the standard non-linear kernel. It creates an area around the data points forming groups. It is affected by the Gamma(y) hyperparameter, where a smaller   y  value means a loose perimeter around the points, while a larger value creates a tighter and more defined curve around the data groups.
                         </p>
                         <p class="para2">
                             <span class="keyword">Sigmoid:</span> This kernel creates a series of non-linear curves that separate the data points in a more detailed way than the linear classification method. For this kernel it is necessary to tune the Gamma and Coef0 hyperparameters.
@@ -106,7 +106,7 @@
                         <span class="keyword">Max Iter:</span> Allows us to set the maximum number of iterations for training our algorithm. This can have a huge impact on the training time and the model fitting.
                     </p>   
                     <p class="paragraph">
-                        In general terms, there’s no ‘recipe’ for getting good results with parameter setting. As specified before, the sci-kit learn library offers methods to fine tune our hyperparameters, but it is generally considered good practice to also try and manually identify a good range of values and kernel type. <span class="keyword">HAPPY TUNNING!</span>
+                        In general terms, there s no   recipe  for getting good results with parameter setting. As specified before, the sci-kit learn library offers methods to fine tune our hyperparameters, but it is generally considered good practice to also try and manually identify a good range of values and kernel type. <span class="keyword">HAPPY TUNNING!</span>
                     </p>
                 </div>
                 <div class="text_container">
@@ -137,7 +137,7 @@
                     <h2 id="REFERENCES">REFERENCES AND SOURCES</h2>
                     <div class="arch_refs_2">
                         <a href="https://www.datacamp.com/tutorial/svm-classification-scikit-learn-python" class="ref_2">
-                            <img src="images\datacamp.png" alt="datacamp image site" class="tiny_img">
+                            <img src="images/datacamp.png" alt="datacamp image site" class="tiny_img">
                             <p class="tiny_txt">This entry in the data camp website was extremely useful to comprehend the inner workings of SVM models. It was also a great source of inspiration on how to visualize the model through charts.</p>
                         </a>
                         <a href="https://pair-code.github.io/understanding-umap/" class="ref_2">
